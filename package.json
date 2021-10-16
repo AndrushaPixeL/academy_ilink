@@ -9,6 +9,7 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react-dom": "^17.0.0",
+    "husky": "4.2.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -20,7 +21,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src --ext .ts,.tsx"
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   },
   "prettier": {
     "trailingComma": "es5",
@@ -28,10 +36,10 @@
     "semi": false,
     "singleQuote": true
   },
-  "husky": {
-    "hooks": {
-      "pre-coommit": "yarn lint"
-    }
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "yarn lint"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +52,9 @@
     "parserOptions": {
       "project": "tsconfig.json",
       "tsconfigRootDir": "."
+    },
+    "rules": {
+      "no-console": 2
     }
   },
   "browserslist": {
@@ -60,7 +71,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.30",
-    "husky": "^7.0.2",
+    "lint-staged": "^11.2.3",
     "prettier": "2.4.1"
   }
 }
