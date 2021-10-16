@@ -19,13 +19,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .ts,.tsx"
   },
   "prettier": {
     "trailingComma": "es5",
-    "tabWidth": 4,
+    "tabWidth": 2,
     "semi": false,
     "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-coommit": "yarn lint"
+    }
   },
   "eslintConfig": {
     "extends": [
