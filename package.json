@@ -22,18 +22,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-committed": "lint-committed"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "pretty-quick --staged",
       "eslint . --fix"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "prettier": {
     "trailingComma": "es5",
@@ -56,6 +52,9 @@
       "project": "tsconfig.json",
       "tsconfigRootDir": "."
     },
+    "ignorePatterns": [
+      "commitlint.config.js"
+    ],
     "rules": {
       "no-console": 2
     },
