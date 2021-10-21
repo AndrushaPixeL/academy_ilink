@@ -1,0 +1,32 @@
+@import '../../templates/colors.scss';
+
+.button {
+  position: relative;
+  width: 233px;
+  height: 56px;
+
+  border: 0;
+  background: #5c98f1;
+  border-radius: 8px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 24px;
+  &:hover {
+    background: #4583de;
+  }
+  &:active {
+    background: #2c6ac7;
+  }
+  &:disabled {
+    background: #d1d1d1;
+  }
+}
