@@ -19,7 +19,7 @@
   "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": ["warn"],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -34,7 +34,7 @@
         "allowExpressions": true
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
@@ -45,7 +45,14 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
-    "semi": "off"
+    "semi": "off",
+    "arrow-body-style": ["warn", "always"],
+    "react/jsx-indent": "off",
+    "indent": ["warn", 2],
+    "no-console": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "quotes": "off",
+    "spaced-comment": "off"
   },
   "settings": {
     "import/resolver": {
