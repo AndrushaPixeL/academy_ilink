@@ -15,7 +15,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   return (
     <div>
       <button
-        type="button"
+        type="submit"
         className="button"
         disabled={disabledButton}
         onClick={buttonAction}

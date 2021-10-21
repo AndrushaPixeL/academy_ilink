@@ -1,0 +1,62 @@
+@import '../../templates/colors.scss';
+
+.input {
+  position: relative;
+  width: 354px;
+  height: 56px;
+
+  border: 1px solid #b3cdf8;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 16px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+
+  color: #333333;
+  &:focus {
+    border: 1px solid #5c98f1;
+    outline: none;
+  }
+}
+
+.input_error {
+  border: 1px solid #ff0000 !important;
+  outline: none !important;
+  background: url('../../images/validImage.png') no-repeat center right 19px;
+}
+
+.input_container {
+  margin: 24px;
+  width: 354px;
+}
+
+.input_label {
+  position: relative;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+
+  color: #333333;
+}
+
+.error_message {
+  position: absolute;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: #fb6262;
+}
