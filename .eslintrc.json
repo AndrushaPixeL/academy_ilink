@@ -55,7 +55,9 @@
     "spaced-comment": "off",
     "import/no-unresolved": "off",
     "no-trailing-spaces": "warn",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "off",
+    "jsx-quotes": "warn"
   },
   "settings": {
     "import/resolver": {

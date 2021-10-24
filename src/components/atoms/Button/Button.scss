@@ -1,8 +1,6 @@
-@import '../../templates/colors.scss';
-
 .button {
   position: relative;
-  width: 233px;
+  width: 100%;
   height: 56px;
 
   border: 0;
@@ -20,6 +18,9 @@
   text-align: center;
   justify-content: center;
   margin: 24px;
+
+  transition-property: background;
+  transition-duration: 0.5s;
   &:hover {
     background: #4583de;
   }

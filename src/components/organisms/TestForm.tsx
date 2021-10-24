@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { FieldError, useForm } from 'react-hook-form'
-
 import Button from '../atoms/Button/Button'
 import Input from '../atoms/Input/Input'
+import './TestForm.scss'
 
 export interface IFormInputs {
   firstName: string
@@ -27,9 +27,9 @@ const schema = yup
   })
   .required()
 
-const TestForm: React.FunctionComponent = () => {
+const TestForm: React.FC = () => {
   //test functional
-  const [disabledButton, setDisabledButton] = useState(false)
+  const [isDisabledButton, setDisabledButton] = useState(false)
   const {
     register,
     handleSubmit,
@@ -44,25 +44,30 @@ const TestForm: React.FunctionComponent = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        labelInput="User name"
-        register={register}
-        error={errors.firstName?.message}
-        nameInput="firstName"
-      />
-      <Input
-        labelInput="Password"
-        register={register}
-        error={errors.password?.message}
-        nameInput="password"
-      />
-      <Button
-        disabledButton={disabledButton}
-        textButton="Login In"
-        buttonAction={buttonAction}
-      />
-    </form>
+    <div className="testForm_container">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          labelInput="User name"
+          register={register}
+          error={errors.firstName?.message}
+          nameInput="firstName"
+        />
+        <Input
+          labelInput="Password"
+          register={register}
+          error={errors.password?.message}
+          nameInput="password"
+        />
+        <Button
+          isDisabledButton={isDisabledButton}
+          buttonAction={buttonAction}
+          typeButton="submit"
+          classNameButton="button"
+        >
+          Login
+        </Button>
+      </form>
+    </div>
   )
 }
 

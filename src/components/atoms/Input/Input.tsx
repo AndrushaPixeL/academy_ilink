@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
-import { IFormInputs, FormErrors } from '../../organisms/TestForm'
+import { IFormInputs } from '../../organisms/TestForm'
 import './Input.scss'
 
 interface InputProps {
@@ -9,24 +9,27 @@ interface InputProps {
   error: string | undefined
   nameInput: 'firstName' | 'password'
 }
+const getClassNames = (error: string | undefined): string => {
+  if (error) {
+    return 'input input_error'
+  }
+  return 'input'
+}
 
-const Input: React.FunctionComponent<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   labelInput,
   register,
   error,
   nameInput,
 }) => {
-  if (error) {
-    console.log(12312)
-  }
+  const classNames = React.useMemo(() => {
+    return getClassNames(error)
+  }, [error])
+
   return (
     <div className="input_container">
       <div className="input_label">{labelInput}</div>
-      <input
-        {...register(nameInput)}
-        type="text"
-        className={error ? 'input + input_error' : 'input'}
-      />
+      <input {...register(nameInput)} type="text" className={classNames} />
       <div className="error_message">{error}</div>
     </div>
   )

@@ -1,8 +1,9 @@
 import React from 'react'
 import './App.css'
-import TestForm from './organisms/TestForm'
+import Input from './components/atoms/Input/Input'
+import TestForm from './components/organisms/TestForm'
 
-const App: React.FunctionComponent = () => {
+const App: React.FC = () => {
   return (
     <div className="App">
       <TestForm />
