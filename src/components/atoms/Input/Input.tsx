@@ -8,6 +8,7 @@ interface InputProps {
   register: UseFormRegister<IFormInputs>
   error: string | undefined
   nameInput: 'firstName' | 'password'
+  placeholder: string
 }
 const getClassNames = (error: string | undefined): string => {
   if (error) {
@@ -16,7 +17,13 @@ const getClassNames = (error: string | undefined): string => {
   return 'input'
 }
 
-const Input: FC<InputProps> = ({ labelInput, register, error, nameInput }) => {
+const Input: FC<InputProps> = ({
+  labelInput,
+  register,
+  error,
+  nameInput,
+  placeholder,
+}) => {
   const classNames = React.useMemo(() => {
     return getClassNames(error)
   }, [error])
@@ -24,7 +31,12 @@ const Input: FC<InputProps> = ({ labelInput, register, error, nameInput }) => {
   return (
     <div className="input_container">
       <div className="input_label">{labelInput}</div>
-      <input {...register(nameInput)} type="text" className={classNames} />
+      <input
+        {...register(nameInput)}
+        type="text"
+        className={classNames}
+        placeholder={placeholder}
+      />
       <div className="error_message">{error}</div>
     </div>
   )

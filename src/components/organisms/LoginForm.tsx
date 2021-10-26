@@ -52,12 +52,14 @@ const LoginForm: FC = () => {
             register={register}
             error={errors.firstName?.message}
             nameInput="firstName"
+            placeholder="Input user name"
           />
           <Input
             labelInput="Password"
             register={register}
             error={errors.password?.message}
             nameInput="password"
+            placeholder="Input password"
           />
         </div>
         <Button
