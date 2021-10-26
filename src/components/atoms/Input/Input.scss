@@ -28,7 +28,7 @@
 }
 
 .input_container {
-  margin: 24px 24px 48px 24px;
+  margin: 24px 24px 55px 0;
   display: flex;
   width: 100%;
   height: 56px;
@@ -37,25 +37,26 @@
 
 .input_label {
   position: relative;
+  display: flex;
+  margin-bottom: 4px;
+  margin-top: 1px;
 
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
   line-height: 19px;
-  display: flex;
-
   color: #333333;
 }
 
 .error_message {
+  display: flex;
+  align-items: center;
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 19px;
-  display: flex;
-  align-items: center;
-
   color: #fb6262;
 }

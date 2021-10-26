@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../atoms/Button/Button'
 import Input from '../atoms/Input/Input'
-import './TestForm.scss'
+import './LoginForm.scss'
 
 export interface IFormInputs {
   firstName: string
@@ -27,7 +27,7 @@ const schema = yup
   })
   .required()
 
-const TestForm: React.FC = () => {
+const LoginForm: FC = () => {
   //test functional
   const [isDisabledButton, setDisabledButton] = useState(false)
   const {
@@ -44,20 +44,22 @@ const TestForm: React.FC = () => {
   }
 
   return (
-    <div className="testForm_container">
+    <div className="loginForm_container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          labelInput="User name"
-          register={register}
-          error={errors.firstName?.message}
-          nameInput="firstName"
-        />
-        <Input
-          labelInput="Password"
-          register={register}
-          error={errors.password?.message}
-          nameInput="password"
-        />
+        <div className="inputs_container">
+          <Input
+            labelInput="User name"
+            register={register}
+            error={errors.firstName?.message}
+            nameInput="firstName"
+          />
+          <Input
+            labelInput="Password"
+            register={register}
+            error={errors.password?.message}
+            nameInput="password"
+          />
+        </div>
         <Button
           isDisabledButton={isDisabledButton}
           buttonAction={buttonAction}
@@ -71,4 +73,4 @@ const TestForm: React.FC = () => {
   )
 }
 
-export default TestForm
+export default LoginForm

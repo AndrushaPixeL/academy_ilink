@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { UseFormRegister } from 'react-hook-form'
-import { IFormInputs } from '../../organisms/TestForm'
+import { IFormInputs } from '../../organisms/LoginForm'
 import './Input.scss'
 
 interface InputProps {
@@ -16,12 +16,7 @@ const getClassNames = (error: string | undefined): string => {
   return 'input'
 }
 
-const Input: React.FC<InputProps> = ({
-  labelInput,
-  register,
-  error,
-  nameInput,
-}) => {
+const Input: FC<InputProps> = ({ labelInput, register, error, nameInput }) => {
   const classNames = React.useMemo(() => {
     return getClassNames(error)
   }, [error])

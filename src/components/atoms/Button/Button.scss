@@ -1,6 +1,6 @@
 .button {
   position: relative;
-  width: 100%;
+  min-width: 233px;
   height: 56px;
 
   border: 0;
@@ -17,16 +17,19 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 24px;
+  margin: 73px 24px 48px 0;
 
   transition-property: background;
   transition-duration: 0.5s;
+
   &:hover {
     background: #4583de;
   }
+
   &:active {
     background: #2c6ac7;
   }
+
   &:disabled {
     background: #d1d1d1;
   }

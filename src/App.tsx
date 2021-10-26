@@ -1,14 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { Routes } from './Routes'
 import './App.css'
-import Input from './components/atoms/Input/Input'
-import TestForm from './components/organisms/TestForm'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <TestForm />
-    </div>
-  )
+const App: FC = () => {
+  return <Routes />
 }
 
 export default App

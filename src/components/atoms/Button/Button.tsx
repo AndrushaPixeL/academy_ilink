@@ -1,5 +1,4 @@
-import React, { Children } from 'react'
-import { isPropertySignature } from 'typescript'
+import React, { FC } from 'react'
 import './Button.scss'
 
 interface ButtonProps {
@@ -9,7 +8,7 @@ interface ButtonProps {
   classNameButton: string
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   isDisabledButton,
   buttonAction,
   typeButton,
