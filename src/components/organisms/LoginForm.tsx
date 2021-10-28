@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../atoms/Button/Button'
 import Input from '../atoms/Input/Input'
@@ -30,6 +31,7 @@ const schema = yup
 const LoginForm: FC = () => {
   //test functional
   const [isDisabledButton, setDisabledButton] = useState(false)
+  const history = useHistory()
   const {
     register,
     handleSubmit,
@@ -40,7 +42,7 @@ const LoginForm: FC = () => {
   const onSubmit = (data: IFormInputs): void => console.log('Submit', data)
 
   const buttonAction = (): void => {
-    console.log(123123)
+    history.push('/chats')
   }
 
   return (

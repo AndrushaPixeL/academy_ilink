@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import TestForm from '../components/organisms/LoginForm'
-import AuthPage from '../pages/AuthPage'
+import AuthPage from '../pages/AuthPage/AuthPage'
+import ChatsPage from '../pages/Chats/ChatsPage'
 import { SCREENS } from './endpoints'
 
 export const Routes: FC = () => {
@@ -10,8 +10,8 @@ export const Routes: FC = () => {
       <Route path={SCREENS.SCREEN_LOGIN} exact>
         <AuthPage page="qwerty" />
       </Route>
-      <Route path="/form">
-        <TestForm />
+      <Route path={SCREENS.SCREEN_CHATS}>
+        <ChatsPage page="qwerty" />
       </Route>
     </Switch>
   )
