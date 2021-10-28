@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Header from '../../components/atoms/Header/Header'
-import Dialogs from '../../components/atoms/Dialogs/Dialogs'
-import Chats from '../../components/atoms/Chats/Chats'
+import Dialogs from '../../components/organisms/Dialogs/Dialogs'
+import Chats from '../../components/atoms/Chat/Chat'
 
 import './ChatsPage.scss'
 

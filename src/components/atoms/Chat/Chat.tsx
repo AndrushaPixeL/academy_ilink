@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import NoSelectChatNotice from '../NoSelectChatNotice/NoSelectChatNotice'
-import './Chats.scss'
+import './Chat.scss'
 
 const Chats: FC = () => {
   const noSelectedChat = true

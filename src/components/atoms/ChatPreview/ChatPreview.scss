@@ -1,0 +1,58 @@
+.chatPreview {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 72px;
+  padding: 12px 24px;
+
+  //пока на hover, чтобы видеть как будет
+  &:hover {
+    background-color: #5c98f1;
+    color: white;
+  }
+
+  &:hover .chatPreview_info_name {
+    color: white;
+  }
+
+  &:hover .chatPreview_info_lastMessage {
+    color: white;
+  }
+}
+
+.chatPreview_avatarImage {
+  width: 48px;
+  height: 48px;
+}
+
+.chatPreview_info {
+  font-family: Montserrat;
+  margin-left: 12px;
+
+  &:hover {
+    background-color: #5c98f1;
+    color: white !important;
+  }
+}
+
+.chatPreview_info_name {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  color: #333333;
+
+  @media (max-width: 700px) {
+    font-size: 14px;
+  }
+}
+
+.chatPreview_info_lastMessage {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #949494;
+
+  @media (max-width: 700px) {
+    font-size: 13px;
+  }
+}

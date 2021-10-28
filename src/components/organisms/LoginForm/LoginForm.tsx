@@ -3,8 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
-import Button from '../atoms/Button/Button'
-import Input from '../atoms/Input/Input'
+import Button from '../../atoms/Button/Button'
+import Input from '../../atoms/Input/Input'
 import './LoginForm.scss'
 
 export interface IFormInputs {

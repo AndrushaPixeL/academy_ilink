@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { UseFormRegister } from 'react-hook-form'
-import { IFormInputs } from '../../organisms/LoginForm'
+import { IFormInputs } from '../../organisms/LoginForm/LoginForm'
 import './Input.scss'
 
 interface InputProps {

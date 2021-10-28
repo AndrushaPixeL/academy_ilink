@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import LoginForm from '../../components/organisms/LoginForm'
 import logo from '../../assets/images/Logo.png'
+import LoginForm from '../../components/organisms/LoginForm/LoginForm'
 import './AuthPage.scss'
 
 interface AuthPage {

@@ -1,12 +1,14 @@
 .chats {
   width: 75%;
   height: calc(100vh - 80px);
-  background: url('../../../assets/images/ChatBackground.png');
+  background: url('../../../assets/images/ChatBackground.png') no-repeat center;
+  background-size: cover;
 
   @media (max-width: 700px) {
     display: none;
   }
 }
+
 .chats_noSelect_container {
   display: flex;
   justify-content: center;
