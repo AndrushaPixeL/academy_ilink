@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
+import Message from '../Message/Message'
 import NoSelectChatNotice from '../NoSelectChatNotice/NoSelectChatNotice'
 import './Chat.scss'
 
 const Chats: FC = () => {
-  const noSelectedChat = true
+  const noSelectedChat = false
+
   return (
     <div className="chats">
       {noSelectedChat ? (
@@ -11,7 +13,14 @@ const Chats: FC = () => {
           <NoSelectChatNotice />
         </div>
       ) : (
-        <></>
+        <>
+          <div className="chats_myMessage">
+            <Message />
+          </div>
+          <div className="chats_myMessage">
+            <Message />
+          </div>
+        </>
       )}
     </div>
   )
