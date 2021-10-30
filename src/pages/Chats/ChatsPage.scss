@@ -6,4 +6,15 @@
 .chatsPage_container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+}
+
+.chatsPage_chat_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }

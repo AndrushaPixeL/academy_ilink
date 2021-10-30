@@ -11,7 +11,7 @@ export const Routes: FC = () => {
         <AuthPage page="qwerty" />
       </Route>
       <Route path={SCREENS.SCREEN_CHATS}>
-        <ChatsPage page="qwerty" />
+        <ChatsPage />
       </Route>
     </Switch>
   )

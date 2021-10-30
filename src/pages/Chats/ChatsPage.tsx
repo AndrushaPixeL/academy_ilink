@@ -1,26 +1,21 @@
 import React, { FC } from 'react'
 import Header from '../../components/atoms/Header/Header'
+import Chat from '../../components/organisms/Chat/Chat'
+import ChatInput from '../../components/organisms/ChatInput/ChatInput'
 import Dialogs from '../../components/organisms/Dialogs/Dialogs'
-import Chats from '../../components/atoms/Chat/Chat'
 
 import './ChatsPage.scss'
 
-interface ChatsPageProps {
-  page: string
-}
-
-const ChatsPage: FC<ChatsPageProps> = ({ page }) => {
-  const testDialogs = [
-    { name: 'Konstantin', surname: 'Konstantinopolski' },
-    { name: 'Asdadada', surname: 'ADsasdda' },
-    { name: 'ZCXCZxczxc', surname: 'ZCzxczczczcz' },
-  ]
+const ChatsPage: FC = () => {
   return (
     <div className="chatsPage">
       <Header />
       <div className="chatsPage_container">
         <Dialogs />
-        <Chats />
+        <div className="chatsPage_chat_container">
+          <Chat />
+          <ChatInput />
+        </div>
       </div>
     </div>
   )

@@ -1,23 +1,23 @@
 import React, { FC } from 'react'
-import Message from '../Message/Message'
-import NoSelectChatNotice from '../NoSelectChatNotice/NoSelectChatNotice'
+import Message from '../../atoms/Message/Message'
+import NoSelectChatNotice from '../../atoms/NoSelectChatNotice/NoSelectChatNotice'
 import './Chat.scss'
 
 const Chats: FC = () => {
   const noSelectedChat = false
 
   return (
-    <div className="chats">
+    <div className="chat">
       {noSelectedChat ? (
-        <div className="chats_noSelect_container">
+        <div className="chat_noSelect_container">
           <NoSelectChatNotice />
         </div>
       ) : (
         <>
-          <div className="chats_myMessage">
+          <div className="chat_myMessage">
             <Message />
           </div>
-          <div className="chats_myMessage">
+          <div className="chat_myMessage">
             <Message />
           </div>
         </>

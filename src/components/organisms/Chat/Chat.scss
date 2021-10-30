@@ -1,23 +1,24 @@
-.chats {
-  width: 75%;
-  height: calc(100vh - 80px);
+.chat {
+  width: 100%;
+  height: calc(100vh - 160px);
   background: url('../../../assets/images/ChatBackground.png') no-repeat center;
   background-size: cover;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   flex-direction: column;
+
   @media (max-width: 700px) {
-    display: none;
+    height: calc(100vh - 112px);
   }
 }
 
-.chats_noSelect_container {
+.chat_noSelect_container {
   display: flex;
   justify-content: center;
   height: 100%;
   align-items: center;
 }
 
-.chats_myMessage {
+.chat_myMessage {
   width: 100%;
 }

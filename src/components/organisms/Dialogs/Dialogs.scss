@@ -10,6 +10,10 @@
     border-right-style: none;
     height: calc(100vh - 64px);
   }
+
+  // @media (max-width: 700px) {
+  //   display: none;
+  // }
 }
 
 .dialogs_coUserImg_container {
