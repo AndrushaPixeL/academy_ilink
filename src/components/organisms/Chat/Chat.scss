@@ -1,15 +1,39 @@
-.chat {
-  width: 100%;
+.chat_container {
   height: calc(100vh - 160px);
   background: url('../../../assets/images/ChatBackground.png') no-repeat center;
   background-size: cover;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e1ecfe;
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c5daff;
+    border-radius: 12px;
+  }
 
   @media (max-width: 700px) {
     height: calc(100vh - 112px);
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
+}
+
+.chat {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .chat_noSelect_container {
@@ -20,5 +44,13 @@
 }
 
 .chat_myMessage {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.chat_yourMessage {
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
 }
