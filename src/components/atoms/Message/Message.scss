@@ -6,25 +6,25 @@
   border: 1px solid #d7e6ff;
   border-radius: 12px 0px 12px 12px;
   padding: 12px;
-}
 
-.myMessage:before,
-.myMessage:after {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: auto;
-  right: -24px;
-  border-bottom: 12px solid transparent;
-  border-left: 12px solid rgb(233, 242, 255);
-  border-right: 12px solid transparent;
-}
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: -24px;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid rgb(233, 242, 255);
+    border-right: 12px solid transparent;
+  }
 
-.myMessage:before {
-  top: -1px;
-  left: auto;
-  right: -25px;
-  border-left-color: #d7e6ff;
+  &:before {
+    top: -1px;
+    left: auto;
+    right: -25px;
+    border-left-color: #d7e6ff;
+  }
 }
 
 .yourMessage {
@@ -36,21 +36,21 @@
   box-sizing: border-box;
   border-radius: 0px 12px 12px 12px;
   padding: 12px;
-}
 
-.yourMessage:before,
-.yourMessage:after {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: -23px;
-  border-bottom: 12px solid transparent;
-  border-left: 12px solid transparent;
-  border-right: 12px solid #ffffff;
-}
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -23px;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid #ffffff;
+  }
 
-.yourMessage:before {
-  top: -1px;
-  left: -24px;
-  border-right-color: #d7e6ff;
+  &:before {
+    top: -1px;
+    left: -24px;
+    border-right-color: #d7e6ff;
+  }
 }

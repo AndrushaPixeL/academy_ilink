@@ -29,8 +29,6 @@ const schema = yup
   .required()
 
 const LoginForm: FC = () => {
-  //test functional
-  const [isDisabledButton, setDisabledButton] = useState(false)
   const history = useHistory()
   const {
     register,
@@ -39,11 +37,7 @@ const LoginForm: FC = () => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (data: IFormInputs): void => console.log('Submit', data)
-
-  const buttonAction = (): void => {
-    history.push('/chats')
-  }
+  const onSubmit = (): void => history.push('/chats')
 
   return (
     <div className="loginForm_container">
@@ -64,12 +58,7 @@ const LoginForm: FC = () => {
             placeholder="Input password"
           />
         </div>
-        <Button
-          isDisabledButton={isDisabledButton}
-          buttonAction={buttonAction}
-          typeButton="submit"
-          classNameButton="button"
-        >
+        <Button typeButton="submit" classNameButton="button">
           Login
         </Button>
       </form>

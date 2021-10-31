@@ -6,9 +6,25 @@ import './Dialogs.scss'
 const Dialogs: FC = () => {
   const users = true
   return (
-    <div className="dialogs">
+    <div className="dialogs_container">
       {users ? (
-        <div>
+        <div className="dialogs">
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
+          <ChatPreview />
           <ChatPreview />
           <ChatPreview />
           <ChatPreview />

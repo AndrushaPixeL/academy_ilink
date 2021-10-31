@@ -2,15 +2,13 @@ import React, { FC } from 'react'
 import './Button.scss'
 
 interface ButtonProps {
-  isDisabledButton: boolean
-  buttonAction: () => void
+  isDisabledButton?: boolean
   typeButton: 'button' | 'submit' | 'reset'
   classNameButton: string
 }
 
 const Button: FC<ButtonProps> = ({
   isDisabledButton,
-  buttonAction,
   typeButton,
   classNameButton,
   children,
@@ -20,11 +18,12 @@ const Button: FC<ButtonProps> = ({
       type={typeButton}
       className={classNameButton}
       disabled={isDisabledButton}
-      onClick={buttonAction}
     >
       {children}
     </button>
   )
 }
-
+Button.defaultProps = {
+  isDisabledButton: false,
+}
 export default Button

@@ -1,9 +1,14 @@
-.dialogs {
+.dialogs_container {
   width: 25%;
   min-width: 220px;
   height: calc(100vh - 80px);
   background-color: rgb(255, 255, 255);
   border-right: solid rgb(136, 170, 227) 1px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   @media (max-width: 700px) {
     width: 100%;
