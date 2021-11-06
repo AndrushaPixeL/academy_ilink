@@ -1,15 +1,19 @@
 import React, { FC } from 'react'
-import { StoreContext } from 'redux-react-hook'
 import { Provider } from 'react-redux'
-import { Routes } from './Routes'
-import { store } from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { StoreContext } from 'redux-react-hook'
 import './App.css'
+// eslint-disable-next-line import/extensions
+import { persistor, store } from './redux/store'
+import { Routes } from './Routes'
 
 const App: FC = () => {
   return (
     <StoreContext.Provider value={store}>
       <Provider store={store}>
-        <Routes />
+        <PersistGate persistor={persistor}>
+          <Routes />
+        </PersistGate>
       </Provider>
     </StoreContext.Provider>
   )

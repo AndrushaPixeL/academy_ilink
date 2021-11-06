@@ -19,11 +19,14 @@ export const registration = (values: IFormInputs) => {
         password: values.password,
         password_confirm: values.password_confirm,
         name: values.name,
-        gender_id: values.gender_id,
-        captcha: values.captcha,
+        gender_id: '2',
+        captcha: '12345',
       }),
     })
-      .then((response): Promise<Response> => response.json())
+      .then((response): Promise<Response> => {
+        console.log('bodя')
+        return response.json()
+      })
       .catch((err) => {
         console.log(err)
       })
@@ -42,7 +45,6 @@ export const getGenders = () => {
     fetch(`${authPath}`, {})
       .then((response): Promise<IGender[]> => response.json())
       .then((data) => {
-        dispatch(AuthActionCreater.setIsLoading(false))
         dispatch(AuthActionCreater.setGenderOptions(data as IGender[]))
       })
       .catch((err) => {

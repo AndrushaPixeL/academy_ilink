@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux'
 import { useMappedState } from 'redux-react-hook'
 import { IFormInputs } from '../../components/organisms/RegistrationForm/RegistrationForm'
 import { authSelectors } from '../authReducer'
-import { GlobalState } from '../store'
+import { PersistedSelectors } from '../persistreducer'
 import { getGenders, registration } from '../thunk/registration'
+import { GlobalState } from '../type'
 
 function useInitialization() {
   const dispatch = useDispatch()
@@ -15,9 +16,9 @@ function useInitialization() {
 function useState() {
   const mapState = useCallback(
     (state: GlobalState) => ({
-      isLogin: authSelectors.getIsLogin(state),
       isLoading: authSelectors.getIsLoading(state),
       genderOptions: authSelectors.getGenderOptions(state),
+      token: PersistedSelectors.getToken(state),
     }),
     []
   )
