@@ -28,12 +28,6 @@
         "tsx": "never"
       }
     ],
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      {
-        "allowExpressions": true
-      }
-    ],
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
@@ -59,7 +53,11 @@
     "react/button-has-type": "off",
     "jsx-quotes": "warn",
     "object-curly-newline": "off",
-    "react/jsx-boolean-value": "off"
+    "react/jsx-boolean-value": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-empty-function": "off",
+    "comma-dangle": "off",
+    "react/require-default-props": "off"
   },
   "settings": {
     "import/resolver": {

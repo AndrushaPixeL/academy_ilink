@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { FC, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -6,40 +7,50 @@ import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
 import './RegistrationForm.scss'
+import { IGender } from '../../../redux/thunk/registration'
 
 export interface IFormInputs {
-  firstName: string
-  createPassword: string
-  passwordConfirmation: string
-  nickname: string
+  login: string
+  password: string
+  password_confirm: string
+  name: string
+  gender_id: string
+  captcha: string
 }
 export interface FormErrors {
-  firstName?: FieldError | undefined
-  createPassword?: FieldError | undefined
-  passwordConfirmation?: FieldError | undefined
-  nickname?: FieldError | undefined
+  login?: FieldError | undefined
+  password?: FieldError | undefined
+  password_confirm?: FieldError | undefined
+  name?: FieldError | undefined
+  captcha?: string
+}
+interface Props {
+  isLoading: boolean
+  genderOptions: IGender[]
+  onSubmit: (formValues: IFormInputs) => void
 }
 
 const schema = yup
   .object({
-    firstName: yup.string().required().min(4).max(14),
-    createPassword: yup
+    login: yup.string().required().min(4).max(14),
+    password: yup
       .string()
       .required()
       .min(8)
       .max(16)
       .matches(/^[a-zA-Z0-9]+$/i),
-    passwordConfirmation: yup
+    password_confirm: yup
       .string()
       .required()
       .min(8)
       .max(16)
       .matches(/^[a-zA-Z0-9]+$/i),
-    nickname: yup.string().required().min(4).max(14),
+    name: yup.string().required().min(4).max(14),
   })
   .required()
 
-const LoginForm: FC = () => {
+const LoginForm: FC<Props> = ({ isLoading, genderOptions, onSubmit }) => {
+  const [imgKey, setImgKey] = useState('key')
   const history = useHistory()
   const {
     register,
@@ -48,7 +59,10 @@ const LoginForm: FC = () => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (): void => history.push('/chats')
+
+  if (isLoading) {
+    return <>loading</>
+  }
 
   return (
     <>
@@ -56,28 +70,47 @@ const LoginForm: FC = () => {
         <div className="inputs_container">
           <Input
             labelInput="User name"
-            register={() => register('firstName')}
-            error={errors.firstName?.message}
+            register={() => register('login')}
+            error={errors.login?.message}
             placeholder="Input user name"
           />
           <Input
             labelInput="Create password"
-            register={() => register('createPassword')}
-            error={errors.createPassword?.message}
+            register={() => register('password')}
+            error={errors.password?.message}
             placeholder="Create password"
           />
           <Input
             labelInput="Password confirmation"
-            register={() => register('passwordConfirmation')}
-            error={errors.createPassword?.message}
+            register={() => register('password_confirm')}
+            error={errors.password?.message}
             placeholder="Password confirmation"
           />
           <Input
-            labelInput="Nickname"
-            register={() => register('nickname')}
-            error={errors.nickname?.message}
-            placeholder="Nickname"
+            labelInput="name"
+            register={() => register('name')}
+            error={errors.name?.message}
+            placeholder="name"
           />
+        </div>
+        <div key={imgKey}>
+          <img
+            src="http://109.194.37.212:93/api/auth/captcha"
+            alt="ошиб очка"
+          />
+          <Input
+            labelInput="captcha"
+            register={() => register('captcha')}
+            error={errors.name?.message}
+            placeholder="captcha"
+          />
+          <Button
+            onClick={() => {
+              setImgKey((prev) => prev.split('').reverse().join(''))
+            }}
+          >
+            обновить
+          </Button>
         </div>
         <Button typeButton="submit" classNameButton="button">
           Login
