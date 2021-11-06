@@ -1,13 +1,10 @@
 import React, { FC } from 'react'
-import { UseFormRegister } from 'react-hook-form'
-import { IFormInputs } from '../../organisms/LoginForm/LoginForm'
 import './Input.scss'
 
 interface InputProps {
   labelInput: string
-  register: UseFormRegister<IFormInputs>
+  register: () => void
   error: string | undefined
-  nameInput: 'firstName' | 'password' | 'securityCode'
   placeholder: string
 }
 const getClassNames = (error: string | undefined): string => {
@@ -21,7 +18,6 @@ const Input: FC<InputProps> = ({
   labelInput,
   register,
   error,
-  nameInput,
   placeholder,
 }) => {
   const classNames = React.useMemo(() => {
@@ -32,7 +28,7 @@ const Input: FC<InputProps> = ({
     <div className="input_container">
       <div className="input_label">{labelInput}</div>
       <input
-        {...register(nameInput)}
+        {...register()}
         type="text"
         className={classNames}
         placeholder={placeholder}

@@ -48,25 +48,22 @@ const LoginForm: FC = () => {
         <div className="inputs_container">
           <Input
             labelInput="User name"
-            register={register}
+            register={() => register('firstName')}
             error={errors.firstName?.message}
-            nameInput="firstName"
             placeholder="Input user name"
           />
           <Input
             labelInput="Password"
-            register={register}
+            register={() => register('password')}
             error={errors.password?.message}
-            nameInput="password"
             placeholder="Input password"
           />
         </div>
         <div className="captcha_container">
           <Input
             labelInput="Security code"
-            register={register}
+            register={() => register('securityCode')}
             error={errors.firstName?.message}
-            nameInput="securityCode"
             placeholder="Security code"
           />
           <div className="captcha">

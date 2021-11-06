@@ -5,20 +5,27 @@ import ChatsPage from '../pages/Chats/ChatsPage'
 import { SCREENS } from './endpoints'
 import PublicRoute from './PublicRoute'
 import PrivateRoute from './PrivateRoute'
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
 
 export const Routes: FC = () => {
-  const restricted = false
   return (
     <Switch>
       <PublicRoute
-        loggedIn
-        restricted
+        loggedIn={false}
+        restricted={true}
         component={AuthPage}
         path={SCREENS.SCREEN_LOGIN}
         exact
       />
+      <PublicRoute
+        loggedIn={false}
+        restricted={true}
+        component={RegistrationPage}
+        path={SCREENS.SCREEN_REGISTRATION}
+        exact
+      />
       <PrivateRoute
-        loggedIn
+        loggedIn={false}
         component={ChatsPage}
         path={SCREENS.SCREEN_CHATS}
       />

@@ -5,26 +5,37 @@ import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
-import './LoginForm.scss'
+import './RegistrationForm.scss'
 
 export interface IFormInputs {
   firstName: string
-  password: number
+  createPassword: string
+  passwordConfirmation: string
+  nickname: string
 }
 export interface FormErrors {
   firstName?: FieldError | undefined
-  password?: FieldError | undefined
+  createPassword?: FieldError | undefined
+  passwordConfirmation?: FieldError | undefined
+  nickname?: FieldError | undefined
 }
 
 const schema = yup
   .object({
     firstName: yup.string().required().min(4).max(14),
-    password: yup
+    createPassword: yup
       .string()
       .required()
       .min(8)
       .max(16)
       .matches(/^[a-zA-Z0-9]+$/i),
+    passwordConfirmation: yup
+      .string()
+      .required()
+      .min(8)
+      .max(16)
+      .matches(/^[a-zA-Z0-9]+$/i),
+    nickname: yup.string().required().min(4).max(14),
   })
   .required()
 
@@ -45,17 +56,27 @@ const LoginForm: FC = () => {
         <div className="inputs_container">
           <Input
             labelInput="User name"
-            register={register}
+            register={() => register('firstName')}
             error={errors.firstName?.message}
-            nameInput="firstName"
             placeholder="Input user name"
           />
           <Input
-            labelInput="Password"
-            register={register}
-            error={errors.password?.message}
-            nameInput="password"
-            placeholder="Input password"
+            labelInput="Create password"
+            register={() => register('createPassword')}
+            error={errors.createPassword?.message}
+            placeholder="Create password"
+          />
+          <Input
+            labelInput="Password confirmation"
+            register={() => register('passwordConfirmation')}
+            error={errors.createPassword?.message}
+            placeholder="Password confirmation"
+          />
+          <Input
+            labelInput="Nickname"
+            register={() => register('nickname')}
+            error={errors.nickname?.message}
+            placeholder="Nickname"
           />
         </div>
         <Button typeButton="submit" classNameButton="button">
