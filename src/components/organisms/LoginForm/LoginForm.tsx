@@ -10,10 +10,12 @@ import './LoginForm.scss'
 export interface IFormInputs {
   firstName: string
   password: number
+  securityCode: string
 }
 export interface FormErrors {
   firstName?: FieldError | undefined
   password?: FieldError | undefined
+  securityCode?: FieldError | undefined
 }
 
 const schema = yup
@@ -25,6 +27,7 @@ const schema = yup
       .min(8)
       .max(16)
       .matches(/^[a-zA-Z0-9]+$/i),
+    securityCode: yup.string().required().min(4),
   })
   .required()
 
@@ -57,6 +60,18 @@ const LoginForm: FC = () => {
             nameInput="password"
             placeholder="Input password"
           />
+        </div>
+        <div className="captcha_container">
+          <Input
+            labelInput="Security code"
+            register={register}
+            error={errors.firstName?.message}
+            nameInput="securityCode"
+            placeholder="Security code"
+          />
+          <div className="captcha">
+            <button>asdasda</button>
+          </div>
         </div>
         <Button typeButton="submit" classNameButton="button">
           Login

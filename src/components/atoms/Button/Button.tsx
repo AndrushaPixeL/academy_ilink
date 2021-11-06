@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import './Button.scss'
 
-interface ButtonProps {
+interface Button {
   isDisabledButton?: boolean
   typeButton: 'button' | 'submit' | 'reset'
   classNameButton: string
 }
 
-const Button: FC<ButtonProps> = ({
+const Button: FC<Button> = ({
   isDisabledButton,
   typeButton,
   classNameButton,

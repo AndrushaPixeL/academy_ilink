@@ -7,7 +7,7 @@ interface InputProps {
   labelInput: string
   register: UseFormRegister<IFormInputs>
   error: string | undefined
-  nameInput: 'firstName' | 'password'
+  nameInput: 'firstName' | 'password' | 'securityCode'
   placeholder: string
 }
 const getClassNames = (error: string | undefined): string => {

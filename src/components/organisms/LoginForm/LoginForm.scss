@@ -1,3 +1,12 @@
 .inputs_container {
   margin-bottom: 12px;
 }
+.captcha_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: -23px;
+}
+.captcha {
+  width: 100%;
+  margin-left: 24px;
+}
