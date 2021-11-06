@@ -21,6 +21,14 @@ class PersistedReducer extends ImmerReducer<PersistedReducerInitialStateInt> {
 
   setToken(token: string | null) {
     this.draftState.token = token
+    if (token) {
+      this.draftState.isLogin = true
+    }
+  }
+
+  signOut() {
+    this.draftState.token = null
+    this.draftState.isLogin = false
   }
 }
 

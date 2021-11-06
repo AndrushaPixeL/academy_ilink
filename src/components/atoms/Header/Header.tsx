@@ -2,8 +2,10 @@ import React, { FC } from 'react'
 import logo from '../../../assets/images/Logo.png'
 import account from '../../../assets/images/accountImage.png'
 import './Header.scss'
+import useAuth from '../../../hooks/useAuth'
 
 const Header: FC = () => {
+  const { signOut } = useAuth()
   return (
     <div className="header">
       <input
@@ -18,7 +20,7 @@ const Header: FC = () => {
         src={account}
         alt="account"
         className="header_account"
-        onClick={() => console.log('Click Account')}
+        onClick={signOut}
       />
     </div>
   )

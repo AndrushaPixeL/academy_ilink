@@ -9,7 +9,7 @@ import Input from '../../atoms/Input/Input'
 import './RegistrationForm.scss'
 import { IGender } from '../../../redux/thunk/registration'
 
-export interface IFormInputs {
+export interface IRegistrFormInputs {
   login: string
   password: string
   password_confirm: string
@@ -27,7 +27,7 @@ export interface FormErrors {
 interface Props {
   isLoading: boolean
   genderOptions: IGender[]
-  onSubmit: (formValues: IFormInputs) => void
+  onSubmit: (formValues: IRegistrFormInputs) => void
 }
 
 const schema = yup
@@ -56,7 +56,7 @@ const LoginForm: FC<Props> = ({ isLoading, genderOptions, onSubmit }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<IRegistrFormInputs>({
     resolver: yupResolver(schema),
   })
 

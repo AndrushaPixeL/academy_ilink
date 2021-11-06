@@ -1,7 +1,7 @@
 import { useMemo, useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useMappedState } from 'redux-react-hook'
-import { IFormInputs } from '../../components/organisms/RegistrationForm/RegistrationForm'
+import { IRegistrFormInputs } from '../../components/organisms/RegistrationForm/RegistrationForm'
 import { authSelectors } from '../authReducer'
 import { PersistedSelectors } from '../persistreducer'
 import { getGenders, registration } from '../thunk/registration'
@@ -28,7 +28,7 @@ function useEventHandlers() {
   const dispatch = useDispatch()
   const eventHandlers = useMemo(
     () => ({
-      handleSubmit: (formValues: IFormInputs) => {
+      handleSubmit: (formValues: IRegistrFormInputs) => {
         dispatch(registration(formValues))
       },
     }),

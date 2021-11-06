@@ -1,18 +1,19 @@
 import React, { FC } from 'react'
 import MainContainer from '..'
-import logo from '../../assets/images/Logo.png'
 import LoginForm from '../../components/organisms/LoginForm/LoginForm'
 import './AuthPage.scss'
+import { useLoginPresenter } from '../../redux/presenters/LoginPresenter'
 
 interface AuthPage {
   page: string
 }
 
 const AuthPage: FC<AuthPage> = ({ page }) => {
+  const { values, eventHandlers } = useLoginPresenter()
   return (
     <MainContainer>
       <div className="authPage_form">
-        <LoginForm />
+        <LoginForm onSubmit={eventHandlers.handleSubmit} />
       </div>
     </MainContainer>
   )

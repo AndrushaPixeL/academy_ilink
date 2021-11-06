@@ -17,6 +17,9 @@ export interface FormErrors {
   password?: FieldError | undefined
   securityCode?: FieldError | undefined
 }
+interface Props {
+  onSubmit: (values: IFormInputs) => void
+}
 
 const schema = yup
   .object({
@@ -31,7 +34,7 @@ const schema = yup
   })
   .required()
 
-const LoginForm: FC = () => {
+const LoginForm: FC<Props> = ({ onSubmit }) => {
   const history = useHistory()
   const {
     register,
@@ -40,7 +43,6 @@ const LoginForm: FC = () => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (): void => history.push('/chats')
 
   return (
     <>
