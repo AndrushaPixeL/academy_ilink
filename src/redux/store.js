@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 import { auth } from './authReducer'
 import { persist } from './persistreducer'
+import { usersList } from './userListReducer'
 
 const persistConfig = {
   key: 'persist',
@@ -22,6 +23,7 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   auth,
   persist: persistReducer(persistConfig, persist),
+  usersList,
 })
 
 export const store = createStore(
