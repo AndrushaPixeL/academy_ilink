@@ -17,12 +17,11 @@ const ChatsPage: FC = () => {
     getData('UserList')
   }, [token, connectionStatus])
 
-  console.log(values.userList, 'userList')
   return (
     <div className="chatsPage">
       <Header />
       <div className="chatsPage_container">
-        <Dialogs />
+        <Dialogs users={values.userList} />
         <div className="chatsPage_chat_container">
           <Chat />
           <ChatInput />

@@ -1,33 +1,21 @@
 import React, { FC } from 'react'
 import noUser from '../../../assets/images/NoUsersImage.png'
+import { User } from '../../../redux/userListReducer'
 import ChatPreview from '../../atoms/ChatPreview/ChatPreview'
 import './Dialogs.scss'
 
-const Dialogs: FC = () => {
-  const users = true
+interface DialogsProps {
+  users: Array<User>
+}
+
+const Dialogs: FC<DialogsProps> = ({ users }) => {
   return (
     <div className="dialogs_container">
-      {users ? (
+      {users.length ? (
         <div className="dialogs">
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
-          <ChatPreview />
+          {users.map((user) => {
+            return <ChatPreview user={user} />
+          })}
         </div>
       ) : (
         <div className="dialogs_coUserImg_container">
