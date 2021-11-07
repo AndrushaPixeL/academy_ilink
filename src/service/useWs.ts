@@ -12,15 +12,14 @@ export type RequestKeys = keyof typeof typeRequest
 
 const useWS = (token: string | null) => {
   const dispatch = useDispatch()
-  const [socketUrl, setSocketUrl] = useState(
-    `ws://109.194.37.212:2346/?type=test&ws_id=${token}`
-  )
+  const socketUrl = `ws://109.194.37.212:2346/?type=test&ws_id=${token}`
+
   const [messageHistory, setMessageHistory] = useState([])
   //CONFIG
 
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl, {
     shouldReconnect: (closeEvent) => {
-      console.error('соединение прерванно ')
+      console.error('саидениннеи прирвона')
       return true
     },
   })
@@ -36,9 +35,6 @@ const useWS = (token: string | null) => {
   }[readyState]
 
   //EVENTS
-  useEffect(() => {
-    setSocketUrl(`ws://109.194.37.212:2346/?type=test&ws_id=${token}`)
-  }, [token])
 
   useEffect(() => {
     try {
@@ -57,8 +53,6 @@ const useWS = (token: string | null) => {
   }, [lastMessage, setMessageHistory])
 
   //HANDLERS
-  const handleClickChangeSocketUrl = useCallback(() => setSocketUrl(''), [])
-
   console.log(connectionStatus, 'connectionStatus')
   const getData = (type: RequestKeys) => {
     switch (type) {
