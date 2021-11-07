@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
@@ -19,6 +18,7 @@ export interface FormErrors {
 }
 interface Props {
   onSubmit: (values: IFormInputs) => void
+  handleRedirect: () => void
 }
 
 const schema = yup
@@ -34,8 +34,7 @@ const schema = yup
   })
   .required()
 
-const LoginForm: FC<Props> = ({ onSubmit }) => {
-  const history = useHistory()
+const LoginForm: FC<Props> = ({ onSubmit, handleRedirect }) => {
   const {
     register,
     handleSubmit,
@@ -72,9 +71,16 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
             <button>asdasda</button>
           </div>
         </div>
-        <Button typeButton="submit" classNameButton="button">
-          Login
-        </Button>
+        <div className="buttons_container">
+          <Button typeButton="submit">Login</Button>
+          <Button
+            typeButton="button"
+            onClick={handleRedirect}
+            variant="outlined"
+          >
+            Registration
+          </Button>
+        </div>
       </form>
     </>
   )

@@ -10,7 +10,6 @@ import useAuth from '../hooks/useAuth'
 
 export const Routes: FC = () => {
   const { isLogin } = useAuth()
-
   return (
     <Switch>
       <PublicRoute

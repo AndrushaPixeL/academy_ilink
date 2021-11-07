@@ -1,26 +1,36 @@
 .button {
   position: relative;
-  min-width: 233px;
+  width: 100%;
   height: 56px;
-
-  border: 0;
-  background: #5c98f1;
-  border-radius: 8px;
 
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
-  color: white;
 
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 73px 24px 48px 0;
 
   transition-property: background;
   transition-duration: 0.5s;
+  cursor: pointer;
+
+  &:disabled {
+    background: #d1d1d1;
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 80px;
+  }
+}
+
+.standart {
+  border: 0;
+  background: #5c98f1;
+  border-radius: 8px;
+  color: white;
 
   &:hover {
     background: #4583de;
@@ -29,13 +39,21 @@
   &:active {
     background: #2c6ac7;
   }
+}
 
-  &:disabled {
-    background: #d1d1d1;
+.outlined {
+  border: 1px solid #5c98f1;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #5c98f1;
+
+  &:hover {
+    background: #e9f0fb;
+    border-color: #307df1;
   }
 
-  @media (max-width: 1200px) {
-    min-width: 100%;
-    margin-top: 80px;
+  &:active {
+    background: #d1e3ff;
   }
 }

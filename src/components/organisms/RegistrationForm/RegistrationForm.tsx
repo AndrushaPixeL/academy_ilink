@@ -28,6 +28,7 @@ interface Props {
   isLoading: boolean
   genderOptions: IGender[]
   onSubmit: (formValues: IRegistrFormInputs) => void
+  handleRedirect: () => void
 }
 
 const schema = yup
@@ -49,7 +50,12 @@ const schema = yup
   })
   .required()
 
-const LoginForm: FC<Props> = ({ isLoading, genderOptions, onSubmit }) => {
+const RegistrationForm: FC<Props> = ({
+  isLoading,
+  genderOptions,
+  onSubmit,
+  handleRedirect,
+}) => {
   const [imgKey, setImgKey] = useState('key')
   const history = useHistory()
   const {
@@ -112,12 +118,19 @@ const LoginForm: FC<Props> = ({ isLoading, genderOptions, onSubmit }) => {
             обновить
           </Button>
         </div>
-        <Button typeButton="submit" classNameButton="button">
-          Login
-        </Button>
+        <div className="buttons_container">
+          <Button typeButton="submit">Registration</Button>
+          <Button
+            typeButton="button"
+            variant="outlined"
+            onClick={handleRedirect}
+          >
+            Login
+          </Button>
+        </div>
       </form>
     </>
   )
 }
 
-export default LoginForm
+export default RegistrationForm

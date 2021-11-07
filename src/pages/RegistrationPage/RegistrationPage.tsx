@@ -16,6 +16,7 @@ const RegistrationPage: FC<RegistrationPage> = ({ page }) => {
       <div className="authPage_form">
         <RegistrationForm
           onSubmit={eventHandlers.handleSubmit}
+          handleRedirect={eventHandlers.handleRedirect}
           genderOptions={values.genderOptions}
           isLoading={values.isLoading}
         />

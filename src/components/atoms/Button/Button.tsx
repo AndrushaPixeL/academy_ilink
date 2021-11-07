@@ -4,21 +4,23 @@ import './Button.scss'
 interface ButtonProps {
   isDisabledButton?: boolean
   typeButton?: 'button' | 'submit' | 'reset'
-  classNameButton?: string
+  variant?: 'standart' | 'outlined'
+  className?: string
   onClick?: () => void
 }
 
 const Button: FC<ButtonProps> = ({
   isDisabledButton,
   typeButton,
-  classNameButton,
   children,
+  className,
+  variant = 'standart',
   onClick,
 }) => {
   return (
     <button
       type={typeButton}
-      className={classNameButton}
+      className={`button ${variant} ${className}`}
       disabled={isDisabledButton}
       onClick={onClick}
     >
