@@ -14,7 +14,7 @@ const Dialogs: FC<DialogsProps> = ({ users }) => {
       {users.length ? (
         <div className="dialogs">
           {users.map((user) => {
-            return <ChatPreview user={user} />
+            return <ChatPreview user={user} key={user.name} />
           })}
         </div>
       ) : (

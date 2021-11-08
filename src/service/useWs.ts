@@ -38,7 +38,11 @@ const useWS = (token: string | null) => {
 
   useEffect(() => {
     try {
-      const responseData = JSON.parse(lastMessage?.data)
+      let responseData = []
+      if (lastMessage) {
+        responseData = JSON.parse(lastMessage?.data)
+      }
+      console.log(responseData)
       switch (responseData.type) {
       case typeRequest.UserList:
         dispatch(UsersListActionCreater.setUsers(responseData.data))
