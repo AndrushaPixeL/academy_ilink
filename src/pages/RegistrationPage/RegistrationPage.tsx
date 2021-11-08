@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import MainContainer from '..'
+import AuthContainer from '../AuthContainer/AuthContainer'
 import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm'
-import './RegistrationPage.scss'
 import { useRegistrationPresenter } from '../../redux/presenters/RegistrationPresenter'
+import './RegistrationPage.scss'
 
 interface RegistrationPage {
   page: string
@@ -10,9 +10,10 @@ interface RegistrationPage {
 
 const RegistrationPage: FC<RegistrationPage> = ({ page }) => {
   const { values, eventHandlers } = useRegistrationPresenter()
+  const registrationHeading = 'Registration'
 
   return (
-    <MainContainer>
+    <AuthContainer heading={registrationHeading}>
       <div className="authPage_form">
         <RegistrationForm
           onSubmit={eventHandlers.handleSubmit}
@@ -21,7 +22,7 @@ const RegistrationPage: FC<RegistrationPage> = ({ page }) => {
           isLoading={values.isLoading}
         />
       </div>
-    </MainContainer>
+    </AuthContainer>
   )
 }
 

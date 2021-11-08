@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
+import Captcha from '../../molecules/Captcha/Captcha'
 import './LoginForm.scss'
 
 export interface IFormInputs {
@@ -42,7 +43,6 @@ const LoginForm: FC<Props> = ({ onSubmit, handleRedirect }) => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   })
-
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,17 +60,11 @@ const LoginForm: FC<Props> = ({ onSubmit, handleRedirect }) => {
             placeholder="Input password"
           />
         </div>
-        <div className="captcha_container">
-          <Input
-            labelInput="Security code"
-            register={() => register('securityCode')}
-            error={errors.firstName?.message}
-            placeholder="Security code"
-          />
-          <div className="captcha">
-            <button>asdasda</button>
-          </div>
-        </div>
+        <Captcha
+          register={() => register('securityCode')}
+          error={errors.securityCode?.message}
+          labelInput="Security code"
+        />
         <div className="buttons_container">
           <Button typeButton="submit">Login</Button>
           <Button

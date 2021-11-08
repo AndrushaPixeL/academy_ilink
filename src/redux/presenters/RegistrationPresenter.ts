@@ -29,13 +29,16 @@ function useState() {
 function useEventHandlers() {
   const dispatch = useDispatch()
   const history = useHistory()
+  const goToLogin = () => {
+    history.push(SCREENS.SCREEN_LOGIN)
+  }
   const eventHandlers = useMemo(
     () => ({
       handleSubmit: (formValues: IRegistrFormInputs) => {
-        dispatch(registration(formValues))
+        dispatch(registration(formValues, goToLogin))
       },
       handleRedirect: () => {
-        history.push(SCREENS.SCREEN_LOGIN)
+        goToLogin()
       },
     }),
     []

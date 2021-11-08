@@ -1,25 +1,26 @@
 import React, { FC } from 'react'
-import MainContainer from '..'
+import AuthContainer from '../AuthContainer/AuthContainer'
 import LoginForm from '../../components/organisms/LoginForm/LoginForm'
 import { useLoginPresenter } from '../../redux/presenters/LoginPresenter'
-import './AuthPage.scss'
+import './LoginPage.scss'
 
-interface AuthPage {
+interface LoginPage {
   page: string
 }
 
-const AuthPage: FC<AuthPage> = ({ page }) => {
+const LoginPage: FC<LoginPage> = ({ page }) => {
   const { values, eventHandlers } = useLoginPresenter()
+  const loginHeading = 'Please, autorize yourself'
   return (
-    <MainContainer>
+    <AuthContainer heading={loginHeading}>
       <div className="authPage_form">
         <LoginForm
           onSubmit={eventHandlers.handleSubmit}
           handleRedirect={eventHandlers.handleRedirect}
         />
       </div>
-    </MainContainer>
+    </AuthContainer>
   )
 }
 
-export default AuthPage
+export default LoginPage

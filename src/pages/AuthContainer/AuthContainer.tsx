@@ -1,7 +1,11 @@
 import React, { ReactElement } from 'react'
-import logo from '../assets/images/Logo.png'
+import logo from '../../assets/images/Logo.png'
 
-const MainContainer: React.FC = ({ children }) => {
+interface AuthContainer {
+  heading: string
+}
+
+const AuthContainer: React.FC<AuthContainer> = ({ children, heading }) => {
   return (
     <div className="authPage">
       <div className="auth_container">
@@ -12,7 +16,7 @@ const MainContainer: React.FC = ({ children }) => {
               <span className="authPage_title">Wellcome to </span>
               <span className="authPage_title chatty">Chatty</span>
               <span className="authPage_title exclamation">!</span>
-              <h2>Please, autorize yourself</h2>
+              <h2>{heading}</h2>
             </div>
           </div>
         </div>
@@ -22,4 +26,4 @@ const MainContainer: React.FC = ({ children }) => {
   )
 }
 
-export default MainContainer
+export default AuthContainer

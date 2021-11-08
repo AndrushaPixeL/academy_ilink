@@ -6,6 +6,7 @@ interface InputProps {
   register: () => void
   error: string | undefined
   placeholder: string
+  type?: string
 }
 const getClassNames = (error: string | undefined): string => {
   if (error) {
@@ -19,6 +20,7 @@ const Input: FC<InputProps> = ({
   register,
   error,
   placeholder,
+  type = 'text',
 }) => {
   const classNames = React.useMemo(() => {
     return getClassNames(error)
@@ -29,7 +31,7 @@ const Input: FC<InputProps> = ({
       <div className="input_label">{labelInput}</div>
       <input
         {...register()}
-        type="text"
+        type={type}
         className={classNames}
         placeholder={placeholder}
       />

@@ -6,8 +6,9 @@ import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
-import './RegistrationForm.scss'
 import { IGender } from '../../../redux/thunk/registration'
+import Captcha from '../../molecules/Captcha/Captcha'
+import './RegistrationForm.scss'
 
 export interface IRegistrFormInputs {
   login: string
@@ -65,7 +66,6 @@ const RegistrationForm: FC<Props> = ({
   } = useForm<IRegistrFormInputs>({
     resolver: yupResolver(schema),
   })
-
   if (isLoading) {
     return <>loading</>
   }
@@ -93,31 +93,17 @@ const RegistrationForm: FC<Props> = ({
             placeholder="Password confirmation"
           />
           <Input
-            labelInput="name"
+            labelInput="Nickname"
             register={() => register('name')}
             error={errors.name?.message}
-            placeholder="name"
+            placeholder="Nickname"
           />
         </div>
-        <div key={imgKey}>
-          <img
-            src="http://109.194.37.212:93/api/auth/captcha"
-            alt="ошиб очка"
-          />
-          <Input
-            labelInput="captcha"
-            register={() => register('captcha')}
-            error={errors.name?.message}
-            placeholder="captcha"
-          />
-          <Button
-            onClick={() => {
-              setImgKey((prev) => prev.split('').reverse().join(''))
-            }}
-          >
-            обновить
-          </Button>
-        </div>
+        <Captcha
+          register={() => register('captcha')}
+          error={errors.captcha?.message}
+          labelInput="captcha"
+        />
         <div className="buttons_container">
           <Button typeButton="submit">Registration</Button>
           <Button

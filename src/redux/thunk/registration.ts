@@ -2,6 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import { IFormInputs } from '../../components/organisms/LoginForm/LoginForm'
 import { IRegistrFormInputs } from '../../components/organisms/RegistrationForm/RegistrationForm'
+import { SCREENS } from '../../Routes/endpoints'
 import { AuthActionCreater } from '../authReducer'
 import { PersistedActionCreater } from '../persistreducer'
 
@@ -11,7 +12,10 @@ export type IGender = {
 
 const authPath = 'http://109.194.37.212:93/api/auth/'
 
-export const registration = (values: IRegistrFormInputs) => {
+export const registration = (
+  values: IRegistrFormInputs,
+  goToLogin: () => void
+) => {
   return (dispatch: (callback: any) => void) => {
     fetch(`${authPath}register`, {
       method: 'POST',
@@ -35,6 +39,7 @@ export const registration = (values: IRegistrFormInputs) => {
       })
       .then((data) => {
         console.log(data, 'data')
+        if (data) goToLogin()
       })
       .catch((err) => {
         console.log(err)

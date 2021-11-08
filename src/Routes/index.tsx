@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { BrowserRouter as Switch } from 'react-router-dom'
-import AuthPage from '../pages/AuthPage/AuthPage'
+import LoginPage from '../pages/LoginPage/LoginPage'
 import ChatsPage from '../pages/Chats/ChatsPage'
 import { SCREENS } from './endpoints'
 import PublicRoute from './PublicRoute'
@@ -15,7 +15,7 @@ export const Routes: FC = () => {
       <PublicRoute
         loggedIn={isLogin}
         restricted={isLogin}
-        component={AuthPage}
+        component={LoginPage}
         path={SCREENS.SCREEN_LOGIN}
         exact
       />
