@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import './Button.scss'
 
-interface ButtonProps {
+interface Button {
   isDisabledButton?: boolean
   typeButton?: 'button' | 'submit' | 'reset'
   variant?: 'standart' | 'outlined'
@@ -9,7 +9,7 @@ interface ButtonProps {
   onClick?: () => void
 }
 
-const Button: FC<ButtonProps> = ({
+const Button: FC<Button> = ({
   isDisabledButton,
   typeButton,
   children,

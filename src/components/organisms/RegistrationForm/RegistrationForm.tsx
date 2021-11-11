@@ -1,14 +1,13 @@
 /* eslint-disable camelcase */
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useHistory } from 'react-router'
 import { FieldError, useForm } from 'react-hook-form'
 import Button from '../../atoms/Button/Button'
 import Input from '../../atoms/Input/Input'
 import { IGender } from '../../../redux/thunk/registration'
 import Captcha from '../../molecules/Captcha/Captcha'
-import './RegistrationForm.scss'
+import Select from '../../atoms/Select/Select'
 
 export interface IRegistrFormInputs {
   login: string
@@ -27,7 +26,7 @@ export interface FormErrors {
 }
 interface Props {
   isLoading: boolean
-  genderOptions: IGender[]
+  genderOptions: IGender
   onSubmit: (formValues: IRegistrFormInputs) => void
   handleRedirect: () => void
 }
@@ -48,6 +47,7 @@ const schema = yup
       .max(16)
       .matches(/^[a-zA-Z0-9]+$/i),
     name: yup.string().required().min(4).max(14),
+    gender: yup.number(),
   })
   .required()
 
@@ -57,8 +57,6 @@ const RegistrationForm: FC<Props> = ({
   onSubmit,
   handleRedirect,
 }) => {
-  const [imgKey, setImgKey] = useState('key')
-  const history = useHistory()
   const {
     register,
     handleSubmit,
@@ -69,7 +67,6 @@ const RegistrationForm: FC<Props> = ({
   if (isLoading) {
     return <>loading</>
   }
-
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -99,6 +96,10 @@ const RegistrationForm: FC<Props> = ({
             placeholder="Nickname"
           />
         </div>
+        <Select
+          genders={genderOptions}
+          register={() => register('gender_id')}
+        />
         <Captcha
           register={() => register('captcha')}
           error={errors.captcha?.message}

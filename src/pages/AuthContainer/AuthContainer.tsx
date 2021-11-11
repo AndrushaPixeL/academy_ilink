@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import logo from '../../assets/images/Logo.png'
+import './AuthContainer.scss'
 
 interface AuthContainer {
   heading: string

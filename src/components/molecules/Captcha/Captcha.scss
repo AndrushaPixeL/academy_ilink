@@ -3,6 +3,9 @@
   flex-direction: row;
   margin-top: -23px;
   width: calc(100% + 40px);
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 }
 .captcha {
   position: relative;

@@ -8,11 +8,11 @@ import { GlobalState } from './type'
 
 export interface AuthReducerInitialStateInt {
   isLoading: boolean
-  genderOptions: Array<IGender>
+  genderOptions: IGender
 }
 export const AuthReducerInitialState: AuthReducerInitialStateInt = {
   isLoading: false,
-  genderOptions: [],
+  genderOptions: { genders: [] },
 }
 
 class AuthReducer extends ImmerReducer<AuthReducerInitialStateInt> {
@@ -20,7 +20,7 @@ class AuthReducer extends ImmerReducer<AuthReducerInitialStateInt> {
     this.draftState.isLoading = isLoading
   }
 
-  setGenderOptions(genderOptions: Array<IGender>) {
+  setGenderOptions(genderOptions: IGender) {
     this.draftState.genderOptions = genderOptions
     this.draftState.isLoading = false
   }
@@ -30,7 +30,7 @@ export const AuthActionCreater = createActionCreators(AuthReducer)
 
 export const authSelectors = {
   getIsLoading: (state: GlobalState): boolean => state.auth.isLoading,
-  getGenderOptions: (state: GlobalState): Array<IGender> => state.auth.genderOptions,
+  getGenderOptions: (state: GlobalState): IGender => state.auth.genderOptions,
 }
 
 export const auth = createReducerFunction(AuthReducer, AuthReducerInitialState)

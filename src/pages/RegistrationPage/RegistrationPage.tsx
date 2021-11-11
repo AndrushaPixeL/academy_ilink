@@ -11,7 +11,6 @@ interface RegistrationPage {
 const RegistrationPage: FC<RegistrationPage> = ({ page }) => {
   const { values, eventHandlers } = useRegistrationPresenter()
   const registrationHeading = 'Registration'
-
   return (
     <AuthContainer heading={registrationHeading}>
       <div className="authPage_form">

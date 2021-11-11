@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import logo from '../../../assets/images/Logo.png'
 import account from '../../../assets/images/accountImage.png'
-import './Header.scss'
 import useAuth from '../../../hooks/useAuth'
+import './Header.scss'
 
 const Header: FC = () => {
   const { signOut } = useAuth()

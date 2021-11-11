@@ -6,8 +6,13 @@ import { SCREENS } from '../../Routes/endpoints'
 import { AuthActionCreater } from '../authReducer'
 import { PersistedActionCreater } from '../persistreducer'
 
+export type IGenderFields = {
+  id: string
+  gender: string
+}
+
 export type IGender = {
-  genders: Array<{ id: string; gender: string }>
+  genders: Array<IGenderFields>
 }
 
 const authPath = 'http://109.194.37.212:93/api/auth/'
@@ -16,6 +21,7 @@ export const registration = (
   values: IRegistrFormInputs,
   goToLogin: () => void
 ) => {
+  console.log(9999999, values)
   return (dispatch: (callback: any) => void) => {
     fetch(`${authPath}register`, {
       method: 'POST',
@@ -27,7 +33,7 @@ export const registration = (
         password: values.password,
         password_confirm: values.password_confirm,
         name: values.name,
-        gender_id: '2',
+        gender_id: values.gender_id,
         captcha: '12345',
       }),
     })
@@ -76,9 +82,9 @@ export const getGenders = () => {
   return (dispatch: (callback: any) => void) => {
     dispatch(AuthActionCreater.setIsLoading(true))
     fetch(`${authPath}`, {})
-      .then((response): Promise<IGender[]> => response.json())
+      .then((response): Promise<IGender> => response.json())
       .then((data) => {
-        dispatch(AuthActionCreater.setGenderOptions(data as IGender[]))
+        dispatch(AuthActionCreater.setGenderOptions(data as IGender))
       })
       .catch((err) => {
         dispatch(AuthActionCreater.setIsLoading(false))
